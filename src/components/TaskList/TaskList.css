@@ -1,9 +1,11 @@
+/* src/components/TaskList/TaskList.css */
 .task-list {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
 
+/* ===== EMPTY STATE ===== */
 .empty-state {
   text-align: center;
   padding: 60px 20px;
@@ -13,19 +15,19 @@
 .empty-icon {
   width: 64px;
   height: 64px;
-  color: #cbd5e0;
+  color: var(--text-muted);
   margin-bottom: 16px;
 }
 
 .empty-title {
   font-size: 20px;
   font-weight: 600;
-  color: #2d3748;
+  color: var(--text-primary);
   margin: 0 0 8px 0;
 }
 
 .empty-description {
-  color: #718096;
+  color: var(--text-muted);
   font-size: 15px;
   margin: 0;
 }
@@ -38,5 +40,55 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* ============================================ */
+/* ============ RESPONSIVE DESIGN ============= */
+/* ============================================ */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .empty-state {
+    padding: 40px 16px;
+  }
+  
+  .empty-icon {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 14px;
+  }
+  
+  .empty-title {
+    font-size: 18px;
+  }
+  
+  .empty-description {
+    font-size: 14px;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .task-list {
+    gap: 8px;
+  }
+  
+  .empty-state {
+    padding: 30px 12px;
+  }
+  
+  .empty-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 12px;
+  }
+  
+  .empty-title {
+    font-size: 16px;
+  }
+  
+  .empty-description {
+    font-size: 13px;
   }
 }

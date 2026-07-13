@@ -5,9 +5,13 @@
   padding: 16px 20px;
   margin-bottom: 12px;
   border-left: 4px solid var(--border-color);
-  transition: all 0.3s ease;
+  transition: all var(--transition);
   animation: slideIn 0.4s ease;
   box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+.task-item:last-child {
+  margin-bottom: 0;
 }
 
 .task-item:hover {
@@ -43,6 +47,7 @@
   }
 }
 
+/* ===== HEADER ===== */
 .task-item-header {
   display: flex;
   justify-content: space-between;
@@ -58,6 +63,7 @@
   min-width: 0;
 }
 
+/* ===== STATUS TOGGLE ===== */
 .status-toggle {
   flex-shrink: 0;
   width: 28px;
@@ -69,7 +75,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  transition: all var(--transition);
   margin-top: 2px;
 }
 
@@ -112,6 +118,7 @@
   background: #4299e1;
 }
 
+/* ===== TASK TITLE ===== */
 .task-title-wrapper {
   display: flex;
   align-items: center;
@@ -134,6 +141,7 @@
   color: var(--text-muted);
 }
 
+/* ===== PRIORITY BADGE ===== */
 .priority-badge {
   font-size: 11px;
   padding: 2px 10px;
@@ -141,6 +149,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  flex-shrink: 0;
 }
 
 .bg-green-100 {
@@ -203,6 +212,7 @@
   color: #e9d8fd;
 }
 
+/* ===== ACTIONS ===== */
 .task-item-actions {
   display: flex;
   align-items: center;
@@ -259,6 +269,7 @@
   background: rgba(229, 62, 62, 0.1);
 }
 
+/* ===== DETAILS ===== */
 .task-item-details {
   margin-top: 14px;
   padding-top: 14px;
@@ -326,6 +337,7 @@
   background: rgba(102, 126, 234, 0.2);
 }
 
+/* ===== EDIT MODE ===== */
 .edit-title-input,
 .edit-description-input {
   width: 100%;
@@ -334,7 +346,7 @@
   border-radius: 8px;
   font-size: 14px;
   font-family: inherit;
-  transition: all 0.3s ease;
+  transition: all var(--transition);
   background: var(--input-bg);
   color: var(--text-primary);
 }
@@ -350,23 +362,142 @@
   resize: vertical;
 }
 
-@media (max-width: 640px) {
+/* ============================================ */
+/* ============ RESPONSIVE DESIGN ============= */
+/* ============================================ */
+
+/* Tablets */
+@media (max-width: 768px) {
   .task-item {
     padding: 14px 16px;
+    border-radius: 12px;
+    margin-bottom: 10px;
   }
   
   .task-item-header {
     flex-direction: column;
     align-items: stretch;
+    gap: 8px;
   }
   
   .task-item-actions {
     justify-content: flex-end;
-    margin-top: 8px;
+    margin-top: 4px;
+  }
+  
+  .task-title {
+    font-size: 15px;
   }
   
   .task-metadata {
-    flex-direction: column;
-    align-items: flex-start;
+    gap: 8px;
+    font-size: 12px;
+  }
+  
+  .task-description {
+    font-size: 13px;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .task-item {
+    padding: 12px 14px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    border-left-width: 3px;
+  }
+  
+  .task-item-left {
+    gap: 10px;
+  }
+  
+  .status-toggle {
+    width: 24px;
+    height: 24px;
+    margin-top: 1px;
+  }
+  
+  .status-dot {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .status-toggle svg {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .task-title-wrapper {
+    gap: 6px;
+  }
+  
+  .task-title {
+    font-size: 14px;
+  }
+  
+  .priority-badge {
+    font-size: 10px;
+    padding: 1px 8px;
+  }
+  
+  .task-item-actions {
+    gap: 2px;
+  }
+  
+  .action-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+  }
+  
+  .action-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .task-item-details {
+    margin-top: 10px;
+    padding-top: 10px;
+  }
+  
+  .task-description {
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+  
+  .task-metadata {
+    gap: 6px;
+    font-size: 11px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .metadata-item {
+    gap: 3px;
+  }
+  
+  .status-badge {
+    font-size: 10px;
+    padding: 1px 8px;
+  }
+  
+  .tag-badge {
+    font-size: 10px;
+    padding: 1px 8px;
+  }
+  
+  .task-tags {
+    gap: 4px;
+  }
+  
+  .edit-title-input,
+  .edit-description-input {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+  
+  .edit-title-input {
+    font-size: 14px;
   }
 }

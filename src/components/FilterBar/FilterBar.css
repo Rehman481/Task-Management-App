@@ -6,6 +6,9 @@
   padding: 4px;
   border-radius: 12px;
   border: 1px solid var(--border-color);
+  transition: all var(--transition);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .filter-btn {
@@ -17,7 +20,9 @@
   font-weight: 500;
   color: var(--text-secondary);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all var(--transition);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .filter-btn:hover {
@@ -31,15 +36,55 @@
   box-shadow: 0 2px 8px var(--shadow-color);
 }
 
-@media (max-width: 640px) {
+
+
+/* Tablets */
+@media (max-width: 768px) {
   .filter-bar {
-    overflow-x: auto;
+    gap: 6px;
     padding: 4px;
+    border-radius: 10px;
+    width: 100%;
   }
   
   .filter-btn {
     padding: 6px 16px;
     font-size: 13px;
-    white-space: nowrap;
+    border-radius: 6px;
+    flex: 1;
+    text-align: center;
+    min-width: 60px;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .filter-bar {
+    gap: 4px;
+    padding: 3px;
+    border-radius: 8px;
+    border-width: 1px;
+  }
+  
+  .filter-btn {
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 5px;
+    min-width: 50px;
+  }
+  
+  .filter-btn:hover {
+    transform: none;
+  }
+  
+  /* Make filter scrollable on very small screens */
+  .filter-bar {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 4px 6px;
+  }
+  
+  .filter-btn {
+    flex: 0 0 auto;
   }
 }
